@@ -47,7 +47,7 @@ There are two options here as there are no dev comments:
 
 ## H-4: Reentrancy in Certain Functions
 
-The updateDCAOrder and fulfillLimitOrder functions lack the nonReentrant modifier, making them susceptible to reentrancy attacks - this is mitigated somewhat with the onlyOwner modifier, but this could still potentially be called through the owner contract.
+The updateDCAOrder and fulfillLimitOrder functions lack the nonReentrant modifier, making them susceptible to reentrancy attacks - this is mitigated somewhat with the onlyOwner modifier, but this could still potentially be called through the owner contract. **See informational finding I-2**.
 
 The onlyOwner modifier ensures that only the contract owner can call the function, but it does not prevent the contract from being called multiple times within a single transaction due to reentrancy.
 
