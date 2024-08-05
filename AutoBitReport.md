@@ -69,9 +69,9 @@ The attacker could repeatedly call fulfillLimitOrder, causing the LIMIT order to
 
 **Fix:** Add the nonReentrant modifier to both functions & ensure state changes occur before making external calls to further prevent reentrancy.
 
-# Low Issues
+# Informational Issues
 
-## L-1: Lack of Event Emission for Token Transfers
+## I-1: Lack of Event Emission for Token Transfers
 
 The transferTokens and transferTokensFrom functions do not emit events upon successful transfers.
 
@@ -79,7 +79,7 @@ The transferTokens and transferTokensFrom functions do not emit events upon succ
 
 **Fix:** Add events to these functions to improve traceability.
 
-## L-2: Lack of Authorization Checks in updateDCAOrder and fulfillLimitOrder
+## I-2: Lack of Authorization Checks in updateDCAOrder and fulfillLimitOrder
 
 **Description:** While the onlyOwner modifier restricts access to these functions, it does not fully prevent unauthorized actions by ensuring that the msg.sender is the correct entity expected to perform these actions.
 
