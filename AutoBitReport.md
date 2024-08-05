@@ -22,6 +22,7 @@ The priceTarget variable is not checked for correctness in the createLimitOrder 
 
 **Fix:** Ensure priceTarget is correctly scaled in createLimitOrder, and fulfillLimitOrder. Ensure that all interactions with priceTarget account for the 4-decimal scaling.
 
+
 ## H-2: fulfillLimitOrder Function Does Not Check if the priceTarget Has Been Met
 
 The fulfillLimitOrder function does not verify whether the priceTarget has been met. This omission could lead to orders being filled regardless of the current market price, defeating the purpose of limit orders. This may be handled off chain but in its current state it does not work.
@@ -30,6 +31,7 @@ The fulfillLimitOrder function does not verify whether the priceTarget has been 
 
 **Fix:** Integrate a mechanism to check the current price against the priceTarget before fulfilling the order.
 Since there is no on-chain oracle in the current implementation, this is apparently checked off-chain, but I have not tested this.
+
 
 ## H-3: (MAYBE) Incorrect Calculation of remainingAmount in DCA Struct
 
